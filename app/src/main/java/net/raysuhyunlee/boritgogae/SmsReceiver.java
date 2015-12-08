@@ -33,7 +33,10 @@ public class SmsReceiver extends BroadcastReceiver {
                 }
                 msg_from = msgs[i].getOriginatingAddress();
                 String msgBody = msgs[i].getMessageBody();
-                Log.d("Heloo", msg_from + ": " + msgBody);
+                Money money = SmsParser.parse(msgBody);
+                if (money != null) {
+                    Log.d("Heloo", money.amount + "원 at " + money.name);
+                }
             }
         }
     }
