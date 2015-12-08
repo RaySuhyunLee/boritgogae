@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">보릿고개</string>
+    <string name="hello">안녕하세요!</string>
+    <string name="let_me_ask">시작하기 전에 세 가지만 물어볼게요!</string>
+    <string name="how_much_money_left">지금 돈이 얼마나 남았나요?</string>
+    <string name="how_much_living_expenses">한 달 생활비는 얼마인가요?</string>
+    <string name="when_is_payday">월급 들어오는 날을 알려주세요 :)</string>
+    <string name="won">원</string>
+    <string name="day">일</string>
+    <string name="confirm">확인</string>
+    <string name="next">다음</string>
+    <string name="prev">이전</string>
 </resources>
