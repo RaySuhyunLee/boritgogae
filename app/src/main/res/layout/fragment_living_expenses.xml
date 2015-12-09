@@ -10,6 +10,8 @@
 
     <include layout="@layout/won_bar" />
 
+    <include layout="@layout/error_text" />
+
     <include layout="@layout/next_previous_bar" />
 
 </LinearLayout>

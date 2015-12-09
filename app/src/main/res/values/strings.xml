@@ -13,4 +13,7 @@
     <string name="prev">이전</string>
 
     <string name="db_key_money_left">key_money_left</string>
+
+    <string name="pref_name"></string>
+    <string name="pref_key_budget">key_budget</string>
 </resources>

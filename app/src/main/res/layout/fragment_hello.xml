@@ -22,10 +22,7 @@
         android:text="@string/how_much_money_left"/>
     <include layout="@layout/won_bar" />
 
-    <TextView
-        android:id="@+id/textViewError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <include layout="@layout/error_text" />
 
     <Button
         android:id="@+id/buttonNext"
