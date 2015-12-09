@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 /**
  * Created by SuhyunLee on 2015. 12. 9..
  */
-public class PaydayFragment extends Fragment {
+public class PaydayFragment extends StepFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
