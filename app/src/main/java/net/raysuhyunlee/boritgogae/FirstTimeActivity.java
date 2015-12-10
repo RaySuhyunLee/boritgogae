@@ -1,5 +1,6 @@
 package net.raysuhyunlee.boritgogae;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -25,7 +26,7 @@ public class FirstTimeActivity extends AppCompatActivity {
         helloFragment.setOnNextEvent(() -> nextStep(livingExpensesFragment));
         livingExpensesFragment.setOnNextEvent(() -> nextStep(paydayFragment));
         livingExpensesFragment.setOnPrevEvent(() -> prevStep(helloFragment));
-        paydayFragment.setOnNextEvent(() -> finish());
+        paydayFragment.setOnNextEvent(() -> end());
         paydayFragment.setOnPrevEvent(() -> prevStep(livingExpensesFragment));
 
         startStep(helloFragment);
@@ -50,5 +51,11 @@ public class FirstTimeActivity extends AppCompatActivity {
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.replace(R.id.fragmentContainer, fragment);
         transaction.commit();
+    }
+
+    private void end() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
