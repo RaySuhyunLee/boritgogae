@@ -9,6 +9,9 @@
         <item name="android:textSize">@dimen/text_size_normal</item>
     </style>
 
+    <style name="ActionBarTheme" parent="Widget.AppCompat.Toolbar" >
+    </style>
+
     <style name="Text" parent="AppTheme" >
         <item name="android:textSize">@dimen/text_size_normal</item>
     </style>
