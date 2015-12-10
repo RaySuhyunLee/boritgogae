@@ -11,10 +11,11 @@
     <string name="confirm">확인</string>
     <string name="next">다음</string>
     <string name="prev">이전</string>
+    <string name="won_left">원 남았습니다.</string>
 
     <string name="db_key_money_left">key_money_left</string>
 
-    <string name="pref_name"></string>
+    <string name="pref_name">pref_name</string>
     <string name="pref_key_budget">key_budget</string>
     <string name="pref_key_payday">key_payday</string>
 </resources>
