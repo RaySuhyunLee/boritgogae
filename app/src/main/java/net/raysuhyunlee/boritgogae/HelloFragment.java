@@ -33,7 +33,7 @@ public class HelloFragment extends StepFragment {
             try {
                 DB db = DBFactory.open(getContext());
                 int money = Integer.parseInt(moneyString);
-                db.put(DB_KEY_MONEY_LEFT, money);
+                db.putInt(DB_KEY_MONEY_LEFT, money);
                 db.close();
             } catch (SnappydbException e) {
                 e.printStackTrace();
