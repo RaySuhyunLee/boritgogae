@@ -7,6 +7,8 @@ public class Money {
     public String name;
     public int amount;
 
+    public Money() {}
+
     public Money(String name, int amount) {
         this.name = name;
         this.amount = amount;
