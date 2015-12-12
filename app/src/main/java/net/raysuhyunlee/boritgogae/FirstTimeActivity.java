@@ -1,16 +1,22 @@
 package net.raysuhyunlee.boritgogae;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import butterknife.BindString;
+
 /**
  * Created by SuhyunLee on 2015. 12. 8..
  */
 public class FirstTimeActivity extends AppCompatActivity {
+
+    @BindString(R.string.pref_name) String PREF_NAME;
+    @BindString(R.string.pref_key_is_first_time) String PREF_KEY_IS_FIRST_TIME;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,12 @@ public class FirstTimeActivity extends AppCompatActivity {
     }
 
     private void end() {
+        // mark that it is not first time from now on!
+        SharedPreferences pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean(PREF_KEY_IS_FIRST_TIME, false);
+        editor.apply();
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
