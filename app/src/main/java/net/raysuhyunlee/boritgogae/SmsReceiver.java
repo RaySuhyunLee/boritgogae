@@ -8,6 +8,16 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
+import com.snappydb.DB;
+import com.snappydb.DBFactory;
+import com.snappydb.SnappydbException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindString;
+import butterknife.ButterKnife;
+
 /**
  * Created by SuhyunLee on 2015. 12. 8..
  */
@@ -23,7 +33,8 @@ public class SmsReceiver extends BroadcastReceiver {
             Object[] pdus = (Object[]) bundle.get("pdus");
             String format = (String)bundle.get("format");
             SmsMessage[] msgs = new SmsMessage[pdus.length];
-            String msg_from;
+
+            List<Money> newMoneys = new ArrayList<>();
 
             for(int i=0; i<msgs.length; i++){
                 if (Build.VERSION.SDK_INT >= 23) {
@@ -31,13 +42,36 @@ public class SmsReceiver extends BroadcastReceiver {
                 } else {
                     msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
                 }
-                msg_from = msgs[i].getOriginatingAddress();
+                String msg_from = msgs[i].getOriginatingAddress();
                 String msgBody = msgs[i].getMessageBody();
-                Money money = SmsParser.parse(msgBody);
+                Money money = new Money("helo", 10);
                 if (money != null) {
                     Log.d("Heloo", money.amount + "원 at " + money.name);
+                    newMoneys.add(money);
                 }
             }
+
+            if (newMoneys.size() > 0)
+                putIntoDB(context, newMoneys);
         }
     }
+
+    public void putIntoDB(Context context, List<Money> newMoneys) {
+        String DB_KEY_MONEYS = context.getResources()
+                .getString(R.string.db_key_moneys);
+        try {
+            DB db = DBFactory.open(context);
+            List<Money> moneys = db.getObject(DB_KEY_MONEYS, ArrayList.class);
+            moneys.addAll(newMoneys);
+            /* for debuging
+            for (Money money : moneys) {
+                Log.d("bla", "money amount: " + money.amount);
+            }*/
+            db.put(DB_KEY_MONEYS, moneys);
+            db.close();
+        } catch (SnappydbException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

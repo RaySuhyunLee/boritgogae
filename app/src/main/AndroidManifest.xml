@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SpendListActivity">
+
+        </activity>
 
         <receiver android:name="SmsReceiver">
             <intent-filter>
