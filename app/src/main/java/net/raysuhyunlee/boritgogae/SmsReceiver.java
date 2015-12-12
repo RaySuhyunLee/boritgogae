@@ -15,8 +15,6 @@ import com.snappydb.SnappydbException;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindString;
-import butterknife.ButterKnife;
 
 /**
  * Created by SuhyunLee on 2015. 12. 8..
@@ -44,7 +42,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 }
                 String msg_from = msgs[i].getOriginatingAddress();
                 String msgBody = msgs[i].getMessageBody();
-                Money money = new Money("helo", 10);
+                Money money = SmsParser.parse(msgBody);
                 if (money != null) {
                     Log.d("Heloo", money.amount + "원 at " + money.name);
                     newMoneys.add(money);
