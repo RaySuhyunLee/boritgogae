@@ -13,8 +13,6 @@ import butterknife.BindString;
  */
 public class SplashActivity extends AppCompatActivity {
 
-    @BindString(R.string.pref_name) String PREF_NAME;
-    @BindString(R.string.pref_key_is_first_time) String PREF_KEY_IS_FIRST_TIME;
     final int DELAY_IN_MILLIS = 1700;
 
     @Override
@@ -33,8 +31,8 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public boolean isFirstTime() {
-        SharedPreferences pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-        Boolean isFirstTime = pref.getBoolean(PREF_KEY_IS_FIRST_TIME, true);
+        SharedPreferences pref = getSharedPreferences(API.PREF_NAME, MODE_PRIVATE);
+        Boolean isFirstTime = pref.getBoolean(API.PREF_KEY_IS_FIRST_TIME, true);
         return isFirstTime;
     }
 

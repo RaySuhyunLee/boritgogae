@@ -7,13 +7,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.snappydb.DB;
-import com.snappydb.DBFactory;
-import com.snappydb.SnappydbException;
+import com.activeandroid.query.Select;
 
 import net.raysuhyunlee.boritgogae.DB.Money;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -33,7 +30,7 @@ public class SpendListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        List<Money> moneys = getMoneys();
+        List<Money> moneys = new Select().from(Money.class).execute();
         ListAdapter adapter = new InjectionArrayAdapter<>(this,
                 R.layout.money, moneys, (data, position, view) -> {
 
@@ -46,20 +43,5 @@ public class SpendListActivity extends AppCompatActivity {
             return view;
         });
         listViewSpend.setAdapter(adapter);
-    }
-
-    private List<Money> getMoneys() {
-        String DB_KEY_MONEYS = getString(R.string.db_key_moneys);
-        List<Money> moneys;
-        try {
-            DB db = DBFactory.open(this);
-            moneys = db.getObject(DB_KEY_MONEYS, ArrayList.class);
-            db.close();
-        } catch(SnappydbException e) {
-            e.printStackTrace();
-            moneys = new ArrayList<>();
-        }
-
-        return moneys;
     }
 }

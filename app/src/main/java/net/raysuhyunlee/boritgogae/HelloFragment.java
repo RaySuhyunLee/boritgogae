@@ -11,6 +11,10 @@ import com.snappydb.DB;
 import com.snappydb.DBFactory;
 import com.snappydb.SnappydbException;
 
+import net.raysuhyunlee.boritgogae.DB.Budget;
+
+import java.util.Calendar;
+
 import butterknife.Bind;
 import butterknife.BindString;
 import butterknife.ButterKnife;
@@ -23,21 +27,15 @@ public class HelloFragment extends StepFragment {
 
     @Bind(R.id.editTextMoney) EditText editTextMoney;
     @Bind(R.id.textViewError) TextView textViewError;
-    @BindString(R.string.db_key_money_left) String DB_KEY_MONEY_LEFT;
 
     @OnClick(R.id.buttonNext) void next() {
         String moneyString = editTextMoney.getText().toString();
         if (moneyString.length() == 0) {
             textViewError.setText(R.string.error_type_number);
         } else {
-            try {
-                DB db = DBFactory.open(getContext());
-                int money = Integer.parseInt(moneyString);
-                db.putInt(DB_KEY_MONEY_LEFT, money);
-                db.close();
-            } catch (SnappydbException e) {
-                e.printStackTrace();
-            }
+            int money = Integer.parseInt(moneyString);
+            Budget budget = new Budget(money, Calendar.getInstance());
+            budget.save();
             onNextEvent.onEvent();
         }
     }
