@@ -1,6 +1,6 @@
-package net.raysuhyunlee.boritgogae;
+package net.raysuhyunlee.boritgogae.Sms;
 
-import android.util.Log;
+import net.raysuhyunlee.boritgogae.DB.Money;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

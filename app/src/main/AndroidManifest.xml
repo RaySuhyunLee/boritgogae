@@ -27,7 +27,7 @@
         <activity android:name=".SpendListActivity">
         </activity>
 
-        <receiver android:name="SmsReceiver">
+        <receiver android:name=".Sms.SmsReceiver">
             <intent-filter>
                 <action
                     android:name="android.provider.Telephony.SMS_RECEIVED" />

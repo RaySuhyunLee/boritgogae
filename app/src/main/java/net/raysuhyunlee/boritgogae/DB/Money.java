@@ -1,4 +1,4 @@
-package net.raysuhyunlee.boritgogae;
+package net.raysuhyunlee.boritgogae.DB;
 
 /**
  * Created by SuhyunLee on 2015. 12. 8..

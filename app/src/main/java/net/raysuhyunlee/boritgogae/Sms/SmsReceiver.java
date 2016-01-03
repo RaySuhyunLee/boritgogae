@@ -1,4 +1,4 @@
-package net.raysuhyunlee.boritgogae;
+package net.raysuhyunlee.boritgogae.Sms;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,6 +11,9 @@ import android.util.Log;
 import com.snappydb.DB;
 import com.snappydb.DBFactory;
 import com.snappydb.SnappydbException;
+
+import net.raysuhyunlee.boritgogae.DB.Money;
+import net.raysuhyunlee.boritgogae.R;
 
 import java.util.ArrayList;
 import java.util.List;

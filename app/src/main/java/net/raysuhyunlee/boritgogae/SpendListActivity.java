@@ -11,6 +11,8 @@ import com.snappydb.DB;
 import com.snappydb.DBFactory;
 import com.snappydb.SnappydbException;
 
+import net.raysuhyunlee.boritgogae.DB.Money;
+
 import java.util.ArrayList;
 import java.util.List;
 
