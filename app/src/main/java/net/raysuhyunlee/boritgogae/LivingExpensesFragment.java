@@ -22,9 +22,6 @@ public class LivingExpensesFragment extends StepFragment {
     @Bind(R.id.editTextMoney) EditText editTextMoney;
     @Bind(R.id.textViewError) TextView textViewError;
 
-    @BindString(R.string.pref_name) String PREF_NAME;
-    @BindString(R.string.pref_key_budget) String PREF_KEY_BUDGET;
-
     @OnClick(R.id.buttonPrev) void prev() {
         onPrevEvent.onEvent();
     }
@@ -35,9 +32,9 @@ public class LivingExpensesFragment extends StepFragment {
         } else {
             int budget = Integer.parseInt(moneyString);
             SharedPreferences pref = getActivity()
-                    .getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+                    .getSharedPreferences(API.PREF_NAME, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = pref.edit();
-            editor.putInt(PREF_KEY_BUDGET, budget);
+            editor.putInt(API.PREF_KEY_BUDGET, budget);
             editor.apply();
 
             onNextEvent.onEvent();

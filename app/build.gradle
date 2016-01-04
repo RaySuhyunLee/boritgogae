@@ -29,9 +29,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
 
-    // db
+    /* ------ db ------ */
+    // snappydb
     compile 'com.snappydb:snappydb-lib:0.5.2'
     compile 'com.esotericsoftware.kryo:kryo:2.24.0'
+    // ActiveAndroid
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
 
     compile 'com.jakewharton:butterknife:7.0.1'
 }

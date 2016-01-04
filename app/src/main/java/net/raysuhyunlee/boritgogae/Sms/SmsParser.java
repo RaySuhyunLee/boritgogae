@@ -30,9 +30,9 @@ public class SmsParser {
             Matcher payMatcher = payPattern.matcher(msg);
             Matcher earnMatcher = earnPattern.matcher(msg);
             if (payMatcher.find()) {
-                return new Money(name, won);
+                return new Money(name, won, null); // FIXME
             } else if (earnMatcher.find()) {
-                return new Money(name, -won);
+                return new Money(name, -won, null); // FIXME
             }
         }
 

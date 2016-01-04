@@ -20,8 +20,6 @@ import butterknife.OnClick;
 public class PaydayFragment extends StepFragment {
 
     private int numberPickerValue = 1;
-    @BindString(R.string.pref_name) String PREF_NAME;
-    @BindString(R.string.pref_key_payday) String PREF_KEY_PAYDAY;
 
     @Bind(R.id.numberPickerDate) NumberPicker numberPickerDate;
 
@@ -30,9 +28,9 @@ public class PaydayFragment extends StepFragment {
     }
     @OnClick(R.id.buttonNext) void next() {
         SharedPreferences pref = getActivity()
-                .getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+                .getSharedPreferences(API.PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putInt(PREF_KEY_PAYDAY, numberPickerDate.getValue());
+        editor.putInt(API.PREF_KEY_PAYDAY, numberPickerDate.getValue());
         editor.apply();
         onNextEvent.onEvent();
     }

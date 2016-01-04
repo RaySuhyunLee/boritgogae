@@ -15,9 +15,6 @@ import butterknife.BindString;
  */
 public class FirstTimeActivity extends AppCompatActivity {
 
-    @BindString(R.string.pref_name) String PREF_NAME;
-    @BindString(R.string.pref_key_is_first_time) String PREF_KEY_IS_FIRST_TIME;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +58,9 @@ public class FirstTimeActivity extends AppCompatActivity {
 
     private void end() {
         // mark that it is not first time from now on!
-        SharedPreferences pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+        SharedPreferences pref = getSharedPreferences(API.PREF_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean(PREF_KEY_IS_FIRST_TIME, false);
+        editor.putBoolean(API.PREF_KEY_IS_FIRST_TIME, false);
         editor.apply();
 
         Intent intent = new Intent(this, MainActivity.class);
